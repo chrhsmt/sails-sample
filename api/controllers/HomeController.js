@@ -16,7 +16,8 @@ module.exports = {
     // return res.json({
     //   todo: 'index() is not implemented yet!'
     // });
-        res.view({hello: 'hello, sails!!'});
+        // res.view({hello: 'hello, sails!!'});
+        res.view();
   }
 };
 
