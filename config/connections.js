@@ -29,7 +29,8 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   localDiskDb: {
-    adapter: 'sails-disk'
+    // adapter: 'sails-disk'
+    adapter: "somePostgresqlServer"
   },
 
   /***************************************************************************
@@ -76,10 +77,12 @@ module.exports.connections = {
   ***************************************************************************/
   somePostgresqlServer: {
     adapter: 'sails-postgresql',
-    host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_POSTGRES_USER',
-    password: 'YOUR_POSTGRES_PASSWORD',
-    database: 'YOUR_POSTGRES_DB'
+    host: process.env.DATABASE_URL || 'localhost'
+    // ,
+    // user: process.env.PG_USER || 'YOUR_POSTGRES_USER',
+    // password: process.env.PG_PASS || 'YOUR_POSTGRES_PASSWORD',
+    // database: process.env.PG_DATABASE || 'YOUR_POSTGRES_DB',
+    // port: process.env.PG_PORT || 5432
   }
 
 
