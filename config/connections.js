@@ -29,8 +29,7 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   localDiskDb: {
-    // adapter: 'sails-disk'
-    adapter: "somePostgresqlServer"
+    adapter: 'sails-disk'
   },
 
   /***************************************************************************
@@ -77,14 +76,19 @@ module.exports.connections = {
   ***************************************************************************/
   somePostgresqlServer: {
     adapter: 'sails-postgresql',
-    host: process.env.DATABASE_URL || 'localhost'
-    // ,
-    // user: process.env.PG_USER || 'YOUR_POSTGRES_USER',
-    // password: process.env.PG_PASS || 'YOUR_POSTGRES_PASSWORD',
-    // database: process.env.PG_DATABASE || 'YOUR_POSTGRES_DB',
-    // port: process.env.PG_PORT || 5432
-  }
+    host: process.env.DATABASE_URL || 'localhost',
+    user: process.env.PG_USER || 'YOUR_POSTGRES_USER',
+    password: process.env.PG_PASS || 'YOUR_POSTGRES_PASSWORD',
+    database: process.env.PG_DATABASE || 'YOUR_POSTGRES_DB',
+    port: process.env.PG_PORT || 5432
+  },
 
+  herokuPG: {
+    adapter: 'sails-postgresql',
+    url: process.env.DATABASE_URL || 'localhost',
+    pool: false,
+    ssl: true
+  }
 
   /***************************************************************************
   *                                                                          *
