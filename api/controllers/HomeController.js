@@ -18,6 +18,12 @@ module.exports = {
     // });
         // res.view({hello: 'hello, sails!!'});
         res.view();
+  },
+
+  users: function(req, res) {
+    User.find({}, function(err, users) {
+      res.view({users: users});
+    });
   }
 };
 
